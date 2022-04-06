@@ -9,7 +9,10 @@ OBJECTS := obj/main.o
 
 .PHONY: all clean
 
-all: $(TARGET)
+all: libs $(TARGET)
+
+libs:
+	cd lib/mpg && make lib
 
 $(TARGET): $(OBJECTS) bin
 	$(CC) $(WARN) $(STD) $(LIBS) $(OBJECTS) -o $(TARGET)
