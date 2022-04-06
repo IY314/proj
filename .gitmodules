@@ -1,0 +1,3 @@
+[submodule "lib/mpg"]
+	path = lib/mpg
+	url = https://github.com/IY314/makefile-proj-gen.git
