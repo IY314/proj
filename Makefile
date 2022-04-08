@@ -12,7 +12,7 @@ OBJECTS := obj/main.o
 all: libs $(TARGET)
 
 libs:
-	cd lib/mpg && make lib
+	cd lib/mpg && make bin/libmpg.a
 
 $(TARGET): $(OBJECTS) bin
 	$(CC) $(WARN) $(STD) $(LIBS) $(OBJECTS) -o $(TARGET)
