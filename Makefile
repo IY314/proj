@@ -9,22 +9,22 @@ OBJECTS := obj/main.o
 
 .PHONY: all clean
 
-all: libs $(TARGET)
+all: $(TARGET)
 
 libs:
 	cd lib/mpg && make bin/libmpg.a
 
-$(TARGET): $(OBJECTS) bin
+$(TARGET): $(OBJECTS) libs bin
 	$(CC) $(WARN) $(STD) $(LIBS) $(OBJECTS) -o $(TARGET)
 
 obj/%.o: src/%.c obj
 	$(CC) $(WARN) $(STD) $(INCLUDE) -c $< -o $@
 
 obj:
-	mkdir -p obj
+	@mkdir -p obj
 
 bin:
 	@mkdir -p bin
 
 clean:
-	rm -rf $(TARGET) obj
+	@rm -rf $(TARGET) obj

@@ -12,7 +12,7 @@ void parse_new(int argc, char **argv) {
         if (!strcmp(argv[1], "c-cxx")) {
             struct Project *proj = get_proj("proj new", argc - 1, &argv[1]);
             if (proj == NULL) {
-                puts(mpg_msg);
+                printf("proj: %s\n", mpg_msg);
                 mpg_quit();
                 exit(mpg_status);
             }
