@@ -5,7 +5,7 @@ INCLUDE := -Iinclude -Ilib/mpg/include
 LIBS := -Llib/mpg/bin -lmpg
 
 TARGET := bin/proj
-OBJECTS := obj/main.o
+OBJECTS := obj/main.o obj/new.o
 
 .PHONY: all clean
 
