@@ -10,7 +10,7 @@ void parse_new(int argc, char **argv) {
         exit(1);
     } else {
         if (!strcmp(argv[1], "c-cxx")) {
-            struct Project *proj = get_proj(argc - 1, &argv[1]);
+            struct Project *proj = get_proj("proj new", argc - 1, &argv[1]);
             if (proj == NULL) {
                 puts(mpg_msg);
                 mpg_quit();
@@ -19,9 +19,9 @@ void parse_new(int argc, char **argv) {
 
             int status = build_proj_dir(proj);
             if (status == 0) {
-                printf("mpg: created project '%s'\n", proj->name);
+                printf("proj: created project '%s'\n", proj->name);
             } else {
-                printf("mpg: failed to create project '%s'\n", proj->name);
+                printf("proj: failed to create project '%s'\n", proj->name);
             }
 
             destroy_proj(proj);
