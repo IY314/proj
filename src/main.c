@@ -11,6 +11,11 @@ int main(int argc, char **argv) {
     } else {
         if (!strcmp(argv[1], "new")) {
             parse_new(argc - 1, &argv[1]);
+        } else if (!strcmp(argv[1], "setdir")) {
+            
+        } else {
+            fprintf(stderr, "Usage: proj <subcmd> [args]\n");
+            exit(1);
         }
     }
 }
