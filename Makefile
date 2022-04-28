@@ -1,15 +1,17 @@
-$(CC) := cc
+$(CC) := clang
 WARN := -Wall -Wextra -Werror -pedantic
 STD := -std=c99
 INCLUDE := -Iinclude -Ilib/mpg/include
 LIBS := -Llib/mpg/bin -lmpg
 
 TARGET := bin/proj
-OBJECTS := obj/main.o obj/new.o
+OBJECTS := obj/main.o obj/new.o obj/init.o obj/pair.o obj/cfgfile.o
 
-.PHONY: all clean
+.PHONY: all rebuild clean
 
 all: $(TARGET)
+
+rebuild: clean $(TARGET)
 
 libs:
 	cd lib/mpg && make bin/libmpg.a
