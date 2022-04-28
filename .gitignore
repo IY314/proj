@@ -3,3 +3,4 @@ obj
 .vscode
 *.swp
 .local.vimrc
+.DS_Store

@@ -56,6 +56,9 @@ struct PairArray *create_pair_array() {
 
 void push_pair_array(struct PairArray *const pair_array,
                      const struct Pair *pair) {
+    // Check argument validity
+    if (pair_array == NULL || pair == NULL) return;
+
     if (pair_array->size == pair_array->cap) {
         pair_array->cap *= 2;
         pair_array->pairs =
@@ -67,6 +70,9 @@ void push_pair_array(struct PairArray *const pair_array,
 
 struct Pair *get_pair(const struct PairArray *const pair_array,
                       const char *const key) {
+    // Check argument validity
+    if (pair_array == NULL || key == NULL) return NULL;
+
     for (size_t i = 0; i < pair_array->size; i++) {
         if (!strcmp(pair_array->pairs[i]->key, key)) {
             return pair_array->pairs[i];
@@ -78,6 +84,9 @@ struct Pair *get_pair(const struct PairArray *const pair_array,
 
 void set_pair(struct PairArray *const pair_array, const char *const key,
               const char *const value) {
+    // Check argument validity
+    if (pair_array == NULL || key == NULL || value == NULL) return;
+
     static struct Pair *pair;
 
     pair = get_pair(pair_array, key);

@@ -6,8 +6,10 @@
 #include "proj.h"
 
 const char *get_home() {
+    static char *home;
+
     // Get home environment variable
-    const char *const home = getenv("HOME");
+    home = getenv("HOME");
     if (home == NULL) {
         errexit("proj: $HOME not set\n");
     }
@@ -16,9 +18,11 @@ const char *get_home() {
 }
 
 int main(const int argc, char *const *argv) {
-    const char *const home = get_home();
+    static char *home, *config_path;
 
-    char *const config_path = malloc(strlen(home) + 14);
+    home = get_home();
+
+    config_path = malloc(strlen(home) + 14);
     if (config_path == NULL) {
         perror("proj: malloc");
         exit(1);
