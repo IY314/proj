@@ -2,6 +2,6 @@
 
 #include "pair.h"
 
-struct PairArray *parse_file(char *path);
+struct PairArray *parse_file(const char *const path);
 
-int dump_file(struct PairArray *pair_array, char *path);
+int dump_file(const struct PairArray *const pair_array, const char *const path);
