@@ -6,10 +6,13 @@
 
 #include "proj.h"
 
-void parse_new(int argc, char **argv) {
+void parse_new(const int argc, char *const *argv) {
+    // Check argument validity
+    if (argv == NULL) return;
+
+    // Check for project type
     if (argc < 2) {
-        fprintf(stderr, "Usage: proj new <type> [args]\n");
-        exit(1);
+        errexit("Usage: proj new <type> [args]\n");
     } else {
         if (!strcmp(argv[1], "c-cxx")) {
             struct Project *proj = get_proj("proj new", argc - 1, &argv[1]);

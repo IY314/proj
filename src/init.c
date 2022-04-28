@@ -8,13 +8,12 @@
 #include "proj.h"
 
 void make_config() {
-    char *home = getenv("HOME");
-    if (home == NULL) {
-        fprintf(stderr, "proj: $HOME not set\n");
-        exit(1);
-    }
+    static char *home, *config_path, *config_file;
+    static FILE *fp;
 
-    char *config_path = malloc(strlen(home) + strlen(PROJ_CONFIG_PATH) + 2);
+    home = get_home();
+
+    config_path = malloc(strlen(home) + strlen(PROJ_CONFIG_PATH) + 2);
     sprintf(config_path, "%s/%s", home, PROJ_CONFIG_PATH);
 
     if (mkdir(config_path, S_IRWXU) == -1) {
@@ -25,12 +24,12 @@ void make_config() {
         }
     }
 
-    char *config_file = malloc(strlen(config_path) + 8);
+    config_file = malloc(strlen(config_path) + 8);
     sprintf(config_file, "%s/config", config_path);
 
     free(config_path);
 
-    FILE *fp = fopen(config_file, "w");
+    fp = fopen(config_file, "w");
 
     free(config_file);
 
