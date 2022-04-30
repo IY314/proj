@@ -30,3 +30,9 @@ bin:
 
 clean:
 	@rm -rf $(TARGET) obj
+
+# Git
+
+submod-pull:
+	@git submodule foreach git pull origin main
+
