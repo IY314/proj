@@ -69,7 +69,8 @@ void parse_setdir(const int argc, char *const *argv) {
         errexit("proj: setdir: invalid number of arguments\n");
     }
 
-    static char *dir, *home, *config_path;
+    static char *dir, *config_path;
+    static const char *home;
     static struct PairArray *pair_array;
     static int status;
 

@@ -8,7 +8,8 @@
 #include "proj.h"
 
 void make_config() {
-    static char *home, *config_path, *config_file;
+    static const char *home;
+    static char *config_path, *config_file;
     static FILE *fp;
 
     home = get_home();

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <mpg.h>
+#include <mpg/mpg.h>
 
 #include "proj.h"
 

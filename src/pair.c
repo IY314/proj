@@ -28,7 +28,7 @@ struct Pair *create_pair(const char *const key, const char *const value) {
     return pair;
 }
 
-void free_pair(struct Pair *const pair) {
+void free_pair(struct Pair *pair) {
     // Check argument validity
     if (pair == NULL) return;
 
@@ -54,8 +54,7 @@ struct PairArray *create_pair_array() {
     return pair_array;
 }
 
-void push_pair_array(struct PairArray *const pair_array,
-                     const struct Pair *pair) {
+void push_pair_array(struct PairArray *pair_array, const struct Pair *pair) {
     // Check argument validity
     if (pair_array == NULL || pair == NULL) return;
 
@@ -82,7 +81,7 @@ struct Pair *get_pair(const struct PairArray *const pair_array,
     return NULL;
 }
 
-void set_pair(struct PairArray *const pair_array, const char *const key,
+void set_pair(struct PairArray *pair_array, const char *const key,
               const char *const value) {
     // Check argument validity
     if (pair_array == NULL || key == NULL || value == NULL) return;
@@ -106,7 +105,7 @@ void set_pair(struct PairArray *const pair_array, const char *const key,
     }
 }
 
-void free_pair_array(struct PairArray *const pair_array) {
+void free_pair_array(struct PairArray *pair_array) {
     // Check argument validity
     if (pair_array == NULL) return;
 

@@ -18,7 +18,8 @@ const char *get_home() {
 }
 
 int main(const int argc, char *const *argv) {
-    static char *home, *config_path;
+    static const char *home;
+    static char *config_path;
 
     home = get_home();
 
